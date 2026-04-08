@@ -10,4 +10,4 @@ def hello_world():
 
 @app.route("/<name>")
 def greet(name):
-    return f"<p>Hello, {name}!</p>"
+    return f"<p>Hi, {name}!</p>"
