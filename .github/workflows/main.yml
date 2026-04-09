@@ -19,7 +19,8 @@ jobs:
           chmod 600 shiv
           ls -ltr
           pwd
-          ssh -i shiv yashjain200502@35.246.38.170
+          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170
+
           ls 
 
      
