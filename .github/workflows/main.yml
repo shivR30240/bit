@@ -14,11 +14,12 @@ jobs:
         run: |
           mkdir .ssh
           cd .ssh
-          echo "${{ secrets.PRIVATE_KEY }}" > shiv
+          echo "${{ secrets.shiv }}" > shiv
           ls -ltr
           chmod 600 shiv
           ls -ltr
           pwd
+          cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170
 
           ls 
