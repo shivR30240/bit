@@ -1,7 +1,8 @@
 name: deploy on vm
 on:
   push:
-    branches: [ demo23 ]
+    branches:
+      - demo23 
 jobs:
   deploy:
     runs-on: ubuntu-latest
