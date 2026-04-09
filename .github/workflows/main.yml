@@ -22,14 +22,15 @@ jobs:
           cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170 << 'EOF'
             pwd
-            if [ -d "bit" ]; then
-              echo "Directory bit already exists. Pulling latest changes."
-              cd bit
-              git pull 
+
+            if [ -d "bit1" ]; then
+              echo "Directory bit1 already exists. Pulling latest changes."
+              cd bit1
+              git pull origin demo23
             else
-              echo "Directory bit does not exist. Cloning repository."
-              git clone https://github.com/shivR30240/bit
-              cd bit
+              echo "Directory bit1 does not exist. Cloning repository."
+              git clone https://github.com/shivR30240/bit bit1
+              cd bit1
             fi
             git checkout demo23
             if [ -d "venv" ]; then
@@ -40,7 +41,7 @@ jobs:
             fi
 
             source venv/bin/activate
-            pip install -r requirements.txt
+            pip install -r requirement.txt
             flask --app app run --host=0.0.0.0 --port=5000 
 
 
