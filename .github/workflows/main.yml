@@ -21,7 +21,6 @@ jobs:
           pwd
           cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170
-
-          ls 
+          pwd 
 
      
