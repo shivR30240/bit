@@ -21,6 +21,29 @@ jobs:
           pwd
           cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170 << 'EOF'
-            pwd 
+            pwd
+            if [ -d "bit" ]; then
+              echo "Directory bit already exists. Pulling latest changes."
+              cd bit
+              git pull 
+            else
+              echo "Directory bit does not exist. Cloning repository."
+              git clone https://github.com/shivR30240/bit
+              cd bit
+            fi
+            git checkout demo23
+            if [ -d "venv" ]; then
+              echo "Virtual environment already exists."
+            else
+              echo "Creating virtual environment."
+              python3 -m venv venv
+            fi
+
+            source venv/bin/activate
+            pip install -r requirements.txt
+            flask --app app run --host=0.0.0.0 --port=5000 
+
+
           EOF
+
      
