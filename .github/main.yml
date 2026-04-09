@@ -1,0 +1,23 @@
+name: deploy on vm
+on:
+  push:
+    branches: [ demo23 ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name:  login on server
+        run:
+          mkdir .ssh
+          cd .ssh
+          echo "${{ secrets.PRIVATE_KEY }}" > shiv
+          ls -ltr
+          chmod 600 shiv
+          ls -ltr
+          ssh -i .ssh/shiv yashjain200502@35.246.38.170
+          ls 
+
+     
