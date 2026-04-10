@@ -22,7 +22,8 @@ jobs:
           cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.228.23.16 << 'EOF'
             pwd
-
+            sudo apt-get update
+            sudo apt install python3-pip python3-venv
             if [ -d "bit1" ]; then
               echo "Directory bit1 already exists. Pulling latest changes."
               cd bit1
@@ -47,4 +48,4 @@ jobs:
 
           EOF
 
- 
+     
