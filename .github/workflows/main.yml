@@ -20,7 +20,7 @@ jobs:
           ls -ltr
           pwd
           cat shiv
-          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.246.38.170 << 'EOF'
+          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@34.39.50.9 << 'EOF'
             pwd
 
             if [ -d "bit1" ]; then
