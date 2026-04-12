@@ -43,7 +43,7 @@ jobs:
             fi
             git checkout demo23
            
-            docker rm flask 
+            docker rm flask | true
             docker build -t img .
             docker run --name flask -d -p 5000:5000 img
 
