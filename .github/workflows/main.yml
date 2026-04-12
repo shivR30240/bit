@@ -20,7 +20,7 @@ jobs:
           ls -ltr
           pwd
           cat shiv
-          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@34.41.192.223 << 'EOF'
+          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@136.119.161.16 << 'EOF'
             pwd
             sudo apt-get update
             sudo apt install git -y
