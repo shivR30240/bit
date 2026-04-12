@@ -20,7 +20,7 @@ jobs:
           ls -ltr
           pwd
           cat shiv
-          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.228.23.16 << 'EOF'
+          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.194.7.214 << 'EOF'
             pwd
             sudo apt-get update
             sudo apt install python3-pip python3-venv
