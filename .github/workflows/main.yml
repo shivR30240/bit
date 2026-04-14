@@ -30,7 +30,7 @@ jobs:
           ls -ltr
           pwd
           cat shiv
-          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@136.119.161.16 << 'EOF'
+          ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.228.23.16 << 'EOF'
             pwd
             docker pull ${{ secrets.DOCKER_USER }}/flask-app:latest
             docker stop flask || true
