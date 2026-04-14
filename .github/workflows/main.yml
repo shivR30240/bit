@@ -10,6 +10,16 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
 
+       # ✅ Login to Docker Hub
+      - name: Docker Hub login
+        run: echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+
+      # ✅ Build & Push image
+      - name: Build & Push Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USER }}/flask-app:latest .
+          docker push ${{ secrets.DOCKER_USER }}/flask-app:latest
+
       - name:  login on server
         run: |
           mkdir .ssh
@@ -22,24 +32,10 @@ jobs:
           cat shiv
           ssh -i shiv -o StrictHostKeyChecking=no yashjain200502@35.228.23.16 << 'EOF'
             pwd
-            sudo apt-get update
-            sudo apt install python3-pip python3-venv
-            if [ -d "bit1" ]; then
-              echo "Directory bit1 already exists. Pulling latest changes."
-              cd bit1
-              git pull origin demo23
-            else
-              echo "Directory bit1 does not exist. Cloning repository."
-              git clone https://github.com/shivR30240/bit bit1
-              cd bit1
-            fi
-            git checkout demo23
-           
-            docker rm flask 
-            docker build -t img .
-            docker run --name flask -d -p 5000:5000 img
-
-
+            docker pull ${{ secrets.DOCKER_USER }}/flask-app:latest
+            docker stop flask || true
+            docker rm flask
+            docker run --name flask -d -p 5000:5000 ${{ secrets.DOCKER_USER }}/flask-app:latest
           EOF
 
      
