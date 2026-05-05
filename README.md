@@ -1,4 +1,4 @@
-I built and deployed a Python-based frontend application with a focus on automating the development-to-deployment workflow. 
+I built and deployed a basic Hello World Program with a focus on automating the development-to-deployment workflow. 
 I containerized the application using Docker to ensure consistency across environments and deployed it on Google Cloud Platform (GCP).
 
 For secure deployment, I used SSH access with public-private key authentication instead of passwords. 
